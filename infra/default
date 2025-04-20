@@ -43,14 +43,13 @@ server {
 
 server {
         server_name pussygram.hopto.org;
-        root /var/www/kittygram/;
 
         location /static_backend/ {
-                alias /var/www/kittygram/static_backend/;
+                alias /var/www/kittygram;
         }
 
         location /media/ {
-                alias /var/www/kittygram/media/;
+                alias /var/www/kittygram;
         }
 
         location /api/ {
