@@ -1,3 +1,4 @@
+
 server {
         server_name taskihuyaski.zapto.org;
         
@@ -18,25 +19,30 @@ server {
                 try_files $uri /index.html;
         }
 
+
     listen 443 ssl;
     ssl_certificate /etc/letsencrypt/live/taskihuyaski.zapto.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/taskihuyaski.zapto.org/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
 }
 
 server {
     if ($host = taskihuyaski.zapto.org) {
         return 301 https://$host$request_uri;
     }
-     listen 80;
+
+
+        listen 80;
         server_name taskihuyaski.zapto.org;
     return 404;
+
+
 }
 
 server {
-        listen 80;
-        server_name 158.160.76.170;
+        server_name pussygram.hopto.org;
         root /var/www/kittygram/;
 
         location /static_backend/ {
@@ -58,10 +64,34 @@ server {
                 proxy_set_header Host $host;
                 client_max_body_size 20M;
         }
-        
+
+
         location / {
                 root /var/www/kittygram;
                 index index.html index.htm;
                 try_files $uri /index.html;
         }
+
+
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/pussygram.hopto.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/pussygram.hopto.org/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+}
+
+
+
+server {
+    if ($host = pussygram.hopto.org) {
+        return 301 https://$host$request_uri;
+    }
+
+
+        listen 80;
+        server_name pussygram.hopto.org;
+    return 404;
+
+
 }

@@ -1,5 +1,5 @@
  IP: 158.160.76.170;
- name_taski: https://taskihuyaski.zapto.org/;
- name_kittygram: http://158.160.76.170/;
+ name_taski: https://taskihuyaski.zapto.org;
+ name_kittygram: https://pussygram.hopto.org;
  login: user;
  password: user;
