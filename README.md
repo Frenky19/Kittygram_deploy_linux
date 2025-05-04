@@ -65,7 +65,7 @@ sudo cp -r /home/yc-user/infra_sprint1/backend/static_backend/ /var/www/kittygra
 ```
 python manage.py runserver
 ```
-В файле settings.py xxx.xxx.xxx.xxx укажите IP вашего сервера
+В файле settings.py укажите IP вашего сервера
 ```
 ALLOWED_HOSTS = ['xxx.xxx.xxx.xxx', '127.0.0.1', 'localhost']
 ```
@@ -78,7 +78,7 @@ npm i
 npm run start
 ```
 Проверте тестовый запуск в браузере по адресу
-http://внешний_ip_адрес_сервера:8000
+http://внешний_ip_адрес_сервера:8080
 
 ### Установка и запуск Gunicorn
 На удалённом сервере при активированном виртуальном окружении проекта
@@ -87,11 +87,11 @@ pip install gunicorn==20.1.0
 ```
 Из директории с файлом manage.py
 ```
-gunicorn --bind 0.0.0.0:8000 backend.wsgi
+gunicorn --bind 0.0.0.0:8080 kittygram_backend.wsgi
 ```
 Страница администратора - должна работать без статики
 ```
-http://ваш_публичный_IP:8000/admin/
+http://ваш_публичный_IP:8080/admin/
 ```
 Остановим и запустим для непрерывной работы.
 
