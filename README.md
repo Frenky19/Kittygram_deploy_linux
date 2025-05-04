@@ -124,8 +124,8 @@ WorkingDirectory=/home/<имя-пользователя-в-системе>/infra
 
 # Команду, которую вы запускали руками, теперь будет запускать systemd:
 # /home/<имя-пользователя-в-системе>/
-# <директория-с-проектом>/<путь-до-gunicorn-в-виртуальном-окружении> --bind 0.0.0.0:8000 backend.wsgi
-ExecStart=/home/yc-user/prettypets-django-react/backend/venv/bin/gunicorn --bind 0.0.0.0:8000 backend.wsgi
+# <директория-с-проектом>/<путь-до-gunicorn-в-виртуальном-окружении> --bind 0.0.0.0:8080 kittygram_backend.wsgi
+ExecStart=/home/yc-user/prettypets-django-react/backend/venv/bin/gunicorn --bind 0.0.0.0:8080 kittygram_backend.wsgi
 
 [Install]
 # В этом параметре указывается вариант запуска процесса.
@@ -194,12 +194,12 @@ server {
     location /api/ {
         client_max_body_size 20M;
         # Эта команда определяет, куда нужно перенаправить запрос.
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://127.0.0.1:8080;
     }
 
     location /admin/ {
         client_max_body_size 20M;
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://127.0.0.1:8080;
     }
 
     location /media/ {
